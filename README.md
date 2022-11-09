@@ -1,4 +1,3 @@
 # Resume - Vue2[資料化]
 
-A Pen created on CodePen.io. Original URL: [https://codepen.io/april808/pen/vYRrBjj](https://codepen.io/april808/pen/vYRrBjj).
-
+課程製作備份-結構-Vue2[資料化]
