@@ -1,0 +1,46 @@
+@charset "UTF-8";
+* {
+  border: solid 1px;
+  font-family: "微軟正黑體", sans-serif;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  font-family: "微軟正黑體", sans-serif;
+}
+
+/* 複寫區 */
+ul {
+  padding: 0;
+}
+
+.resume {
+  display: flex;
+  max-width: 950px;
+}
+
+.left {
+  flex: 5;
+}
+
+.right {
+  flex: 7;
+}
+
+.left, .right {
+  padding: 15px;
+}
+
+.left {
+  padding-right: 50px;
+}
+
+.right {
+  padding-left: 50px;
+}

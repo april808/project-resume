@@ -1,0 +1,39 @@
+#resume.resume
+  .left(v-for="card in namecard")
+    h1 {{card.name}}
+    h4 {{card.job}}
+    hr
+    p {{card.content}}
+    .buttons
+      a.btn.fill(v-bind:href="card.worksurl" target="_blank") 作品集
+      a.btn(v-bind:href="card.testurl" target="_blank") Codepen
+    .block(v-for="title in l_titles" v-if="title.c=='專業技能'")
+      h4 {{title.e}}
+      h2 {{title.c}}
+      ul.listSkill
+        li(v-for="list in title.listSkill") {{list[0]}}
+          .circle
+            div(v-bind:class="list[1]") {{'.' + list[1]}}
+            div(v-bind:class="list[2]") {{'.' + list[2]}}
+            div(v-bind:class="list[3]") {{'.' + list[3]}}
+            div(v-if="!list[4]==''" v-bind:class="'.' + list[4]") {{'.' + list[4]}}
+    .block(v-for="title in l_titles" v-if="title.c=='程式技能'")
+      h4 {{title.e}}
+      h2 {{title.c}}
+      ul.listProgram
+        li(v-for="list in title.listProgram") {{list[0]}}
+          .bar
+            .value(v-bind:class="list[1]") {{'.' + list[1]}}
+  .right
+    .block(v-for="title in r_titles" v-if="title.c=='經歷與作品'")
+      h4 {{title.e}}
+      h2 {{title.c}}
+      ul.listExperience
+        li.year(v-for="item in listExperience") {{item.year}}
+          ul(v-for="li in item.list")
+            li {{li.name}}
+    .block(v-for="title in r_titles" v-if="title.c=='比賽經歷'")
+      h4 {{title.e}}
+      h2 {{title.c}}
+      ul(v-for="list in contests")
+        li {{list.name}}
