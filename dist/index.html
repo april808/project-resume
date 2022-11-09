@@ -2,72 +2,120 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Resume - Vue2 - [資料化]2</title>
-  <link rel="stylesheet" href="./style.css">
+  <title>CodePen - &lt;Project 1&gt; Resume</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'><link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <div class="resume" id="resume">
   <div class="left" v-for="card in namecard">
-    <h1>{{card.name}}</h1>
-    <h4>應徵職位：{{card.job}}</h4>
+    <div class="outer">
+      <svg class="change" width="400" height="400" viewBox="0 0 400 400" fill="none">
+        <g id="002">
+          <path d="M380.183 176.5C380.183 274.254 314.251 365.5 213.183 365.5C112.115 365.5 24 316.754 24 219C24 121.246 92.4319 36 193.5 36C294.568 36 380.183 78.7456 380.183 176.5Z" fill="none"></path>
+        </g>
+      </svg><img class="clip-img" v-bind:src="card.profileImageUrl"/>
+      <svg class="change" width="400" height="400" viewBox="0 0 400 400" fill="none">
+        <g id="001">
+          <clippath id="clipImg">
+            <path d="M380.183 176.5C380.183 274.254 314.251 365.5 213.183 365.5C112.115 365.5 24 316.754 24 219C24 121.246 92.4319 36 193.5 36C294.568 36 380.183 78.7456 380.183 176.5Z" fill="#D9D9D9"></path>
+          </clippath>
+        </g>
+      </svg>
+    </div><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+    <div class="h1">{{ card.name }}</div>
+    <h4>應徵職位：{{ card.job }}</h4>
     <hr/>
-    <p>{{card.content}}</p>
-    <div class="buttons"><a class="btn fill" v-bind:href="card.worksurl" target="_blank">作品集</a><a class="btn" v-bind:href="card.testurl" target="_blank">Codepen</a></div>
-    <div class="block" v-for="title in l_titles" v-if="title.c=='專業技能'">
-      <h4>{{title.e}}</h4>
-      <h2>{{title.c}}</h2>
+    <p>{{ card.content }}</p>
+    <div class="buttons"><a class="btn fill" v-bind:href="card.worksUrl" target="_blank">作品集</a><a class="btn" v-bind:href="card.githubUrl" target="_blank">GitHub</a></div>
+    <div class="contact">
+      <p><i class="icon-ra fa-solid fa-phone inline-grid"></i><span>{{ card.phone }}</span></p>
+      <p><i class="icon-ra fa-solid fa-envelope inline-grid"></i><span>{{ card.email }}</span></p>
+      <p><i class="icon-ra fa-solid fa-location-dot inline-grid"></i><span>{{ card.address }}</span></p>
+    </div>
+    <div class="block">
+      <h4>Skills</h4>
+      <h2>專業技能</h2>
       <ul class="listSkill">
-        <li v-for="list in title.listSkill">
-          <div class="circle">
-            <div v-bind:class="list[1]"></div>
-            <div v-bind:class="list[2]"></div>
-            <div v-bind:class="list[3]"></div>
-            <div v-if="!list[4]==''" v-bind:class="list[4]"></div>
-          </div>{{list[0]}}
-        </li>
+        <li class="classbox">前端網頁開發(html/css/js)<i class="icon-ra fa-solid fa-table-columns"></i></li>
+        <li class="classbox">平面設計/插畫(Illustration)<i class="icon-ra fa-solid fa-pen-ruler"></i></li>
       </ul>
     </div>
-    <div class="block" v-for="title in l_titles" v-if="title.c=='程式技能'">
-      <h4>{{title.e}}</h4>
-      <h2>{{title.c}}</h2>
-      <ul class="listProgram" v-for="list in title.listProgram">
-        <li>{{list[0]}}
-          <div class="bar">
-            <div class="value" v-bind:class="list[1]"></div>
-          </div>
+    <div class="block">
+      <h4>Programming Skill</h4>
+      <h2>程式技能</h2>
+      <ul class="listProgram">
+        <li class="classbox"><span>JavaScript<br><i class="fa-brands fa-square-js" style="color: #f0be25"></i></span>
+          <ul>
+            <li>今年</li>
+          </ul>
+          <ul>
+            <li class="tag">jQuery</li>
+            <li class="tag">API</li>
+            <li class="tag">ajax</li>
+            <li class="tag">Vue2</li>
+          </ul>
+        </li>
+        <li class="classbox"><span>CSS<br><i class="fa-brands fa-css3-alt" style="color: #29a9df"></i></span>
+          <ul>
+            <li>4年使用經驗</li>
+            <li class="note">5種定位、偽類、權重、<br>變數、svg設定、動畫...</li>
+          </ul>
+          <ul>
+            <li class="tag">Sass</li>
+            <li class="tag">RWD</li>
+          </ul>
+        </li>
+        <li class="classbox"><span>HTML<br><i class="fa-brands fa-html5" style="color: #f16529"></i></span>
+          <ul>
+            <li class="tag">Pug<img src="https://images.app.goo.gl/YP7qAmeG5AKRqocNA" alt=""/></li>
+            <li class="tag">Bootstrap4</li>
+          </ul>
+        </li>
+        <li class="classbox">Others
+          <ul>
+            <li>GitHub</li>
+          </ul>
         </li>
       </ul>
     </div>
   </div>
   <div class="right">
     <div class="decoration"></div>
-    <div class="block" v-for="title in r_titles" v-if="title.c=='經歷與作品'">
-      <h4>{{title.e}}</h4>
-      <h2>{{title.c}}</h2>
-      <ul class="listExperience">
-        <li class="year" v-for="item in listExperience">{{item.year}}
+    <div class="block">
+      <h4>Experience / Works</h4>
+      <h2>經歷與作品</h2>
+      <ul class="listExperience" v-for="list in experience">
+        <li class="year">{{ list.time }}
           <ul>
-            <li>{{item.list[0].name}}</li>
-            <li>{{item.list[1].name}}</li>
-            <li v-if="!item.list[2]==''">{{item.list[2].name}}</li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="listExperience">
-        <li class="year" v-for="item in listExperience">{{item.year}}
-          <ul v-for="li in item.list">
-            <li>?? {{li.name}} <br/></li>
+            <li>{{ list.thing }}</li>
+            <li v-if="!list.thing2 == ''">{{ list.thing2 }}</li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="block" v-for="title in r_titles" v-if="title.c=='比賽經歷'">
-      <h4>{{title.e}}</h4>
-      <h2>{{title.c}}</h2>
-      <ul v-for="list in contests">
-        <li>{{list.name}}</li>
+    <div class="block">
+      <h4>Education</h4>
+      <h2>學習經歷</h2>
+      <ul v-for="list in school">
+        <li class="classbox"><img class="icon-ra ico-img inline-grid" v-bind:src="list.schoolImageUrl" width="30"/>{{ list.name }}
+          <ul>
+            <li>{{ list.majoring }}<span class="inline-grid" style="float: right">{{ list.time }}</span>
+              <div class="clear"></div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="block">
+      <h4>Tools</h4>
+      <h2>開發工具</h2>
+      <ul class="listSkill tools">
+        <li class="classbox" v-for="list in tools"><img class="icon-ra" v-bind:src="list.toolImageUrl" width="50"/>
+          <h5>{{ list.name }}</h5>
+          <div class="note">{{ list.description }}</div>
+        </li>
       </ul>
     </div>
   </div>

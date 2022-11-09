@@ -1,47 +1,112 @@
 #resume.resume
   .left(v-for="card in namecard")
-    h1 {{card.name}}
-    h4 應徵職位：{{card.job}}
+    .outer
+      svg.change(width="400", height="400", viewBox="0 0 400 400", fill="none")
+        g#002
+          path(
+            d="M380.183 176.5C380.183 274.254 314.251 365.5 213.183 365.5C112.115 365.5 24 316.754 24 219C24 121.246 92.4319 36 193.5 36C294.568 36 380.183 78.7456 380.183 176.5Z",
+            fill="none"
+          )
+      img.clip-img(v-bind:src="card.profileImageUrl")
+      svg.change(width="400", height="400", viewBox="0 0 400 400", fill="none")
+        g#001
+          clippath#clipImg
+            path(
+              d="M380.183 176.5C380.183 274.254 314.251 365.5 213.183 365.5C112.115 365.5 24 316.754 24 219C24 121.246 92.4319 36 193.5 36C294.568 36 380.183 78.7456 380.183 176.5Z",
+              fill="#D9D9D9"
+            )
+    i.fa-solid.fa-star
+    i.fa-solid.fa-star
+    i.fa-solid.fa-star
+    i.fa-solid.fa-star
+    .h1 {{ card.name }}
+    h4 應徵職位：{{ card.job }}
     hr
-    p {{card.content}}
+    p {{ card.content }}
     .buttons
-      a.btn.fill(v-bind:href="card.worksurl" target="_blank") 作品集
-      a.btn(v-bind:href="card.testurl" target="_blank") Codepen
-    .block(v-for="title in l_titles" v-if="title.c=='專業技能'")
-      h4 {{title.e}}
-      h2 {{title.c}}
+      a.btn.fill(v-bind:href="card.worksUrl", target="_blank") 作品集
+      a.btn(v-bind:href="card.githubUrl", target="_blank") GitHub
+    .contact
+      p
+        i.icon-ra.fa-solid.fa-phone.inline-grid
+        span {{ card.phone }}
+      p
+        i.icon-ra.fa-solid.fa-envelope.inline-grid
+        span {{ card.email }}
+      p
+        i.icon-ra.fa-solid.fa-location-dot.inline-grid
+        span {{ card.address }}
+    .block
+      h4 Skills
+      h2 專業技能
       ul.listSkill
-        li(v-for="list in title.listSkill")
-          .circle
-            div(v-bind:class="list[1]")
-            div(v-bind:class="list[2]")
-            div(v-bind:class="list[3]")
-            div(v-if="!list[4]==''" v-bind:class="list[4]")
-          | {{list[0]}}
-    .block(v-for="title in l_titles" v-if="title.c=='程式技能'")
-      h4 {{title.e}}
-      h2 {{title.c}}
-      ul.listProgram(v-for="list in title.listProgram")
-        li {{list[0]}}
-          .bar
-            .value(v-bind:class="list[1]")
+        li.classbox 前端網頁開發(html/css/js)
+          i.icon-ra.fa-solid.fa-table-columns
+        li.classbox 平面設計/插畫(Illustration)
+          i.icon-ra.fa-solid.fa-pen-ruler
+    .block
+      h4 Programming Skill
+      h2 程式技能
+      ul.listProgram
+        li.classbox
+          span JavaScript<br>
+            i.fa-brands.fa-square-js(style="color: #f0be25")
+          ul
+            li 今年
+          ul
+            li.tag jQuery
+            li.tag API
+            li.tag ajax
+            li.tag Vue2
+        li.classbox
+          span CSS<br>
+            i.fa-brands.fa-css3-alt(style="color: #29a9df")
+          ul
+            li 4年使用經驗
+            li.note 5種定位、偽類、權重、<br>變數、svg設定、動畫...
+          ul
+            li.tag Sass
+            li.tag RWD
+        li.classbox
+          span HTML<br>
+            i.fa-brands.fa-html5(style="color: #f16529")
+          ul
+            li.tag Pug
+              img(src="https://images.app.goo.gl/YP7qAmeG5AKRqocNA", alt="")
+            li.tag Bootstrap4
+        li.classbox Others
+          ul
+            li GitHub
+
   .right
     .decoration
-    .block(v-for="title in r_titles" v-if="title.c=='經歷與作品'")
-      h4 {{title.e}}
-      h2 {{title.c}}
-      ul.listExperience
-        li.year(v-for="item in listExperience") {{item.year}}
+    .block
+      h4 Experience / Works
+      h2 經歷與作品
+      ul.listExperience(v-for="list in experience")
+        li.year {{ list.time }}
           ul
-            li {{item.list[0].name}}
-            li {{item.list[1].name}}
-            li(v-if="!item.list[2]==''") {{item.list[2].name}}
-      ul.listExperience
-        li.year(v-for="item in listExperience") {{item.year}}
-          ul(v-for="li in item.list")
-            li ?? {{li.name}} <br/>
-    .block(v-for="title in r_titles" v-if="title.c=='比賽經歷'")
-      h4 {{title.e}}
-      h2 {{title.c}}
-      ul(v-for="list in contests")
-        li {{list.name}}
+            li {{ list.thing }}
+            li(v-if="!list.thing2 == ''") {{ list.thing2 }}
+    .block
+      h4 Education
+      h2 學習經歷
+      ul(v-for="list in school")
+        li.classbox
+          img.icon-ra.ico-img.inline-grid(
+            v-bind:src="list.schoolImageUrl",
+            width="30"
+          )
+          | {{ list.name }}
+          ul
+            li {{ list.majoring }}
+              span.inline-grid(style="float: right") {{ list.time }}
+              .clear
+    .block
+      h4 Tools
+      h2 開發工具
+      ul.listSkill.tools
+        li.classbox(v-for="list in tools")
+          img.icon-ra(v-bind:src="list.toolImageUrl", width="50")
+          h5 {{ list.name }}
+          .note {{ list.description }}

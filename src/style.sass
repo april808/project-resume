@@ -1,19 +1,29 @@
-$color_deepblue: #02005B
-$color_orange: #FF7168
-$color_yellow: #FFFFAE
+$color_deepblue: #c0e0e6
+$color_orange: #4378b6
+$color_yellow: #fdbb2d
+$line-weight: 4px
+$linear-gradient: linear-gradient(135deg,lighten($color_orange,10),lighten($color_yellow,10))
+
+
+@mixin size($w,$h)
+  width: $w
+  height: $h
 
 *
-  // border: solid 1px black
-  font-family: "微軟正黑體",sans-serif
+  // border: solid 0.5px
+
+*, :after, :before
+  box-sizing: border-box
 
 [hidden]
   display: none !important
+
 body
   padding: 50px
   display: flex
   justify-content: center
   background-color: $color_deepblue
-  color: rgba(255,255,255,0.95)
+  color: rgba(0,0,0,0.95)
   font-size: 15px
   line-height: 28px
   letter-spacing: 1px
@@ -23,6 +33,14 @@ body
 ul
   padding: 0
   list-style: none
+.h1 
+  display: block
+  font-size: 2em
+  margin-top: 0.67em
+  margin-bottom: 0.67em
+  margin-left: 0
+  margin-right: 0
+  font-weight: bold
 h2
   margin: 0
   margin-bottom: 25px
@@ -30,8 +48,9 @@ h2
   &::after
     content: ""
     display: inline-block
-    width: 20px
+    width: calc(100% - 6em)
     height: 8px
+    border-radius: 4px
     background-color: $color_orange
     margin-left: 10px
 h4
@@ -42,22 +61,24 @@ h4
 a
   color: white
   text-decoration: none
+  &:nth-child(2)
+    color: $color_orange
 hr
   border: none
-  border-bottom: 4px solid $color_orange
-  width: 40%
+  border-bottom: $line-weight solid $color_orange
+  width: 60%
   margin-left: 0
   
-/* 設定區 */
+/* 設定區 */ 
 .resume
   display: flex
   max-width: 950px
   border: solid 8px white
   padding: 50px
   position: relative
+  background-color: $color_deepblue
 .left
   flex: 5
-  // min-width: 250px
 .right
   flex: 7
 .left,.right
@@ -68,12 +89,16 @@ hr
 .right
   padding-left: 50px
   padding-top: 150px
-
+  
 /* 局部區 */
+.contact
+  font-size: 1.2em
+  i
+    font-size: 1.2em
 .decoration
   width: 300px
   height: 140px
-  background: linear-gradient(135deg,darken($color_orange,10),$color_yellow)
+  background: $linear-gradient
   border-radius: 70px 0 0 70px
   position: absolute
   right: 0
@@ -85,7 +110,7 @@ hr
   & ul
       padding-left: 10px
       margin-left: 10px
-      border-left: 4px solid white
+      border-left: 6px solid white
   &:nth-child(1) ul/*注意Vue v-for的位置不要多隔一層，不然CSS[:nth-child]會被影響作用*/
     border-color: lighten($color_orange,0)
   &:nth-child(2) ul
@@ -96,89 +121,161 @@ hr
 /* list skill */
 .listSkill
   display: flex /*注意Vue v-for的位置不要多隔一層，不然CSS[flex]會被影響作用*/
-  flex-wrap: wrap 
+  justify-content: space-between
+  flex-wrap: wrap
   & li
-    width: calc(100% / 4)
-    padding: 5px
-    box-sizing: border-box
+    width: calc(100% / 2 - 0.7em)
+    padding: $line-weight
     display: flex
     flex-direction: column
+    justify-content: space-between
     align-items: center
     text-align: center
-
-.circle
-  width: 50px
-  height: 50px
-  background-color: rgba($color_orange,0.4)
-  border-radius: 50%
-  position: relative
-  overflow: hidden
-  &::after
-    content: ""
-    display: block
-    background-color: $color_deepblue
-    width: calc(100% - 20px)
-    height: calc(100% - 20px)
-    border-radius: 50%
-    position: relative
-    left: 50%
-    top: 50%
-    transform: translate(-50%,-50%)
-.p90,.p180,.p270,.p360
-  width: 50%
-  height: 50%
-  position: absolute
-  left: 50%
-  top: 0
-  background-color: $color_orange
-.p180
-  top: 50%
-.p270
-  left: 0
-  top: 50%
-.p360
-  left: 0
-  top: 0
+    & i
+      color: $color_orange
+      display: block
+      font-size: 3em
+      padding: 6px
+      border: solid 0.5px
   
 .listProgram
-  & .bar
-    width: 150px
-    height: 10px
-    border: solid 2px $color_orange
+  text-align: center
+  & i
+      font-size: 2em
+  & .tag
+    color: white
+    // display: inline-block
+    background-color: $color_orange
+    margin: 0.1em 0
+    padding: 0 0.3em
     border-radius: 5px
+    opacity: 0.8
   >li
     display: flex
     justify-content: space-between
     align-items: center
     padding-top: 10px
-.value
-  height: 100%
-  width: 60%
-  background-color: $color_orange
-  &.p10
-    width: 10%
-  &.p20
-    width: 20%
-  &.p30
-    width: 30%
-  &.p40
-    width: 40%
-  &.p50
-    width: 50%
-  &.p60
-    width: 60%
-  &.p70
-  width: 70%
-  &.p80
-  width: 80%
-  &.p90
-  width: 90%
-  &.p100
-  width: 100%
+    padding-bottom: 10px
+    border-bottom: $line-weight solid $color_orange
+  
+.classbox
+    background-color: white
+    color: #4F4C4B
+    border-radius: 5px
+    // cursor: pointer
+    // display: inline-block
+    margin: 5px
+    padding: 2px 1em
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+    & h5
+      margin: 7px 0 4px 0
+      line-height: 18px
+
+.inline-grid
+  display: inline-grid
+  color: $color_orange
+  font-weight: bold
+  margin: 0
+  padding-right: $line-weight
+.clear
+  clear: both
+  // 這裡加了一個清除浮動
+  
+.text-color
+  color: $color_orange
+  font-weight: bold
+    
+.icon-ra
+  border-radius: 8px
+  overflow: hidden
+  margin-top: 5px
+  
+.ico-img
+  padding: 0
+  margin-right: 10px
+  border: solid $line-weight
+  position: relative
+  bottom: -4px
+  
+.tools
+  & li
+    width: calc(100% / 2 - 0.7em)
+    
+.note
+  padding: $line-weight 0
+  font-size: 10px
+  line-height: 12px
   
 .btn
-  border: 3px solid $color_orange
+  border: $line-weight solid $color_orange
   padding: 5px 20px
   margin-right: 10px
 .fill
   background-color: $color_orange
+  
+i.fa-star
+  color: $color_yellow
+  font-size: 6em
+  animation: starfly 6s infinite
+  animation-timing-function: ease-in-out
+  position: absolute
+  top: 0vh
+  left: -10vw
+  transform: scale(0.5)
+  opacity: 0.8
+  z-index: 1
+  &:nth-child(2)
+    top: -10vh
+    left: 20vw
+    animation-delay: 2s
+  &:nth-child(3)
+    top: 0vh
+    left: 50vw
+    animation-delay: 4s
+  &:nth-child(4)
+    top: -10vh
+    left: 75vw
+    animation-delay: 6s
+  
+@keyframes starfly
+  to
+    top: 150vh
+    transform: rotateX(1000deg) rotateY(1000deg) rotateZ(1000deg)
+    opacity: 0
+  
+.outer
+  +size(200px,200px)
+  position: relative
+  svg
+    // background-color: #f55
+    /* 注意圖片位置會擋住連結按鈕z-index沒有作用 */
+  svg.change
+    transform: scale(0.5) translate(-200px,-200px)
+    position: absolute
+    top: 0
+    left: 0
+  .clip-img
+    background-size: cover
+    -webkit-clip-path: url(#clipImg)
+    clip-path: url(#clipImg)
+    +size(400px,400px)
+    transform: scale(0.5) translate(-200px,-200px)
+    
+path
+  stroke: $color_orange
+  stroke-width: 15
+  fill: lighten($color_yellow,10)
+  transform-origin: center
+  transition: 0.2s
+  animation: anisvg1 4s infinite linear
+  
+@keyframes anisvg1
+  0%
+    transform: rotate(0deg)
+    opacity: 1
+  50%
+    transform: rotate(180deg)
+    opacity: 0.5
+  100%
+    transform: rotate(360deg)
+    opacity: 1

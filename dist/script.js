@@ -1,39 +1,36 @@
 //resume資料----------------------
-var resume_data={
-  namecard: [{profileImageUrl:"https://images.unsplash.com/photo-1633933329834-44543f91720f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0OTIzNTA0MA&ixlib=rb-1.2.1&q=80&w=400"
-      ,name:"麥大名"
-      ,job:" | 動畫互動網頁特效入門"
-      ,content:"動畫互動網頁程式入門講師、墨雨設計 Monoame Design 負責人、設計與網頁全端雙棲的工程師，為了有趣的想法赴湯蹈火。"
-      ,worksurl:"https://www.google.com.tw/"
-      ,testurl:"https://"
-  }],
-  l_titles: [{c:"專業技能",e:"Skills"
-              ,listSkill: [["前端網頁開發(html/css/js)","p90","p180","p270","p360"]
-                          ,["後端網頁 (laravel)","p90","p180","p270",""]
-                          ,["平面設計/插畫","p90","p180","p270",""]
-                          ,["平面設計/插畫","p90","p180","p270",""]
-                          ,["平面設計/插畫","p90","p180","p270",""]]
-             },
-             {c:"程式技能",e:"Programming Skill"
-              ,listProgram: [["Html/Css/Js","p40"]
-                            ,["Pug/Sass","p50"]
-                            ,["Vue2","p30"]]
-             }],
-  r_titles: [{c:"經歷與作品",e:"Experience / Works"},
-             {c:"比賽經歷",e:"Contests"}],
-  listExperience: [{year: "2014",list: [{name:"遊戲 程式開發"}
-                                        ,{name:"網頁設計 / 開發"}]},
-                   {year: "2016",list: [{name:"01遊戲程式遊戲程式 / 開發"}
-                                         ,{name:"01遊戲程式遊戲程式 / 開發"}
-                                         ,{name:"Dyverse Studio 歧響音樂 互動官網 設計 / 開發"}]}],
-    contests: [{name:"數位創作獎第五屆首獎"}
-               ,{name:"數位創作獎第五屆首獎"}
-               ,{name:"數位創作獎第五屆首獎"}
-               ,{name:"宏碁數位創作獎第七屆首獎暨評審團大獎"}]
+var resume_data = {
+  namecard: [
+    {
+      profileImageUrl: "https://i.imgur.com/4FziZJ7.png",
+      name: "麥大名",
+      job: "前端工程師",
+      content:
+        "視覺設計轉職前端工程師。喜歡網頁互動特效，為呈現心中的畫面而努力。",
+      worksUrl: "https://codepen.io/april808/pen/wvmQEgb",
+      githubUrl: "https://github.com/april808",
+      phone: "暫不提供",
+      email: "contact@example.com",
+      address: "台灣"
+    }],
+  experience: [
+    {time: "2021-2022",thing:"進修 Hahow 線上課程。"},
+    {time: "2020",thing:"◯◯製作。"},
+    {time: "2017",thing:"任職於 ◯◯科技公司",thing2:"負責公司官網的重製。"},
+  ],
+  school: [
+    {name:"Hahow",majoring: "動畫互動網頁程式入門 (HTML/CSS/JS)",time:"2021-2022",schoolImageUrl:"https://i.imgur.com/TWyTqQ7.png"},
+    {name:"◯◯大學",majoring: "視覺傳達系",time:"2017-2013",schoolImageUrl:"https://i.imgur.com/TWyTqQ7.png"},
+    {name:"◯◯高中",majoring: "廣告設計科",time:"2013-2010",schoolImageUrl:"https://i.imgur.com/TWyTqQ7.png"}
+  ],
+  tools: [
+    {name:"Figma",toolImageUrl:"https://i.imgur.com/ywouFJU.png",description:"UI Design, prototyping"},
+    {name:"Vectornator",toolImageUrl:"https://i.imgur.com/lrsygaN.jpg",description:"Graphic Design"},
+    {name:"Sublime Text",toolImageUrl:"https://i.imgur.com/3K5k47Z.png",description:"Code editor"},
+    {name:"Glitch",toolImageUrl:"https://i.imgur.com/PYRLt0d.png",description:"網路應用程式開發平臺(Cloud IDE)"}]
 };
 
-
-var vm=new Vue({
+var vm = new Vue({
   el: "#resume",
   data: resume_data
 });
