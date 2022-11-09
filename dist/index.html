@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Resume - Vue2[資料化]</title>
+  <title>CodePen - Resume - Vue2 - [資料化]2</title>
   <link rel="stylesheet" href="./style.css">
 
 </head>
@@ -11,7 +11,7 @@
 <div class="resume" id="resume">
   <div class="left" v-for="card in namecard">
     <h1>{{card.name}}</h1>
-    <h4>{{card.job}}</h4>
+    <h4>應徵職位：{{card.job}}</h4>
     <hr/>
     <p>{{card.content}}</p>
     <div class="buttons"><a class="btn fill" v-bind:href="card.worksurl" target="_blank">作品集</a><a class="btn" v-bind:href="card.testurl" target="_blank">Codepen</a></div>
@@ -19,36 +19,46 @@
       <h4>{{title.e}}</h4>
       <h2>{{title.c}}</h2>
       <ul class="listSkill">
-        <li v-for="list in title.listSkill">{{list[0]}}
+        <li v-for="list in title.listSkill">
           <div class="circle">
-            <div v-bind:class="list[1]">{{'.' + list[1]}}</div>
-            <div v-bind:class="list[2]">{{'.' + list[2]}}</div>
-            <div v-bind:class="list[3]">{{'.' + list[3]}}</div>
-            <div v-if="!list[4]==''" v-bind:class="'.' + list[4]">{{'.' + list[4]}}</div>
-          </div>
+            <div v-bind:class="list[1]"></div>
+            <div v-bind:class="list[2]"></div>
+            <div v-bind:class="list[3]"></div>
+            <div v-if="!list[4]==''" v-bind:class="list[4]"></div>
+          </div>{{list[0]}}
         </li>
       </ul>
     </div>
     <div class="block" v-for="title in l_titles" v-if="title.c=='程式技能'">
       <h4>{{title.e}}</h4>
       <h2>{{title.c}}</h2>
-      <ul class="listProgram">
-        <li v-for="list in title.listProgram">{{list[0]}}
+      <ul class="listProgram" v-for="list in title.listProgram">
+        <li>{{list[0]}}
           <div class="bar">
-            <div class="value" v-bind:class="list[1]">{{'.' + list[1]}}</div>
+            <div class="value" v-bind:class="list[1]"></div>
           </div>
         </li>
       </ul>
     </div>
   </div>
   <div class="right">
+    <div class="decoration"></div>
     <div class="block" v-for="title in r_titles" v-if="title.c=='經歷與作品'">
       <h4>{{title.e}}</h4>
       <h2>{{title.c}}</h2>
       <ul class="listExperience">
         <li class="year" v-for="item in listExperience">{{item.year}}
+          <ul>
+            <li>{{item.list[0].name}}</li>
+            <li>{{item.list[1].name}}</li>
+            <li v-if="!item.list[2]==''">{{item.list[2].name}}</li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="listExperience">
+        <li class="year" v-for="item in listExperience">{{item.year}}
           <ul v-for="li in item.list">
-            <li>{{li.name}}</li>
+            <li>?? {{li.name}} <br/></li>
           </ul>
         </li>
       </ul>

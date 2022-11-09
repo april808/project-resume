@@ -1,31 +1,184 @@
+$color_deepblue: #02005B
+$color_orange: #FF7168
+$color_yellow: #FFFFAE
+
 *
-  border: solid 1px
+  // border: solid 1px black
   font-family: "微軟正黑體",sans-serif
 
 [hidden]
   display: none !important
-
 body
   padding: 50px
   display: flex
   justify-content: center
+  background-color: $color_deepblue
+  color: rgba(255,255,255,0.95)
+  font-size: 15px
+  line-height: 28px
+  letter-spacing: 1px
   font-family: "微軟正黑體",sans-serif
   
 /* 複寫區 */
 ul
-  // list-style: none
   padding: 0
+  list-style: none
+h2
+  margin: 0
+  margin-bottom: 25px
+  font-weight: 400
+  &::after
+    content: ""
+    display: inline-block
+    width: 20px
+    height: 8px
+    background-color: $color_orange
+    margin-left: 10px
+h4
+  margin: 0
+  margin-top: 40px
+  opacity: 0.8
+  font-weight: 400
+a
+  color: white
+  text-decoration: none
+hr
+  border: none
+  border-bottom: 4px solid $color_orange
+  width: 40%
+  margin-left: 0
   
+/* 設定區 */
 .resume
   display: flex
   max-width: 950px
+  border: solid 8px white
+  padding: 50px
+  position: relative
 .left
   flex: 5
+  // min-width: 250px
 .right
   flex: 7
 .left,.right
   padding: 15px
 .left
   padding-right: 50px
+  border-right: 1px solid $color_orange
 .right
   padding-left: 50px
+  padding-top: 150px
+
+/* 局部區 */
+.decoration
+  width: 300px
+  height: 140px
+  background: linear-gradient(135deg,darken($color_orange,10),$color_yellow)
+  border-radius: 70px 0 0 70px
+  position: absolute
+  right: 0
+  top: 50px
+  
+.listExperience>li
+  display: flex
+  margin-bottom: 10px
+  & ul
+      padding-left: 10px
+      margin-left: 10px
+      border-left: 4px solid white
+  &:nth-child(1) ul/*注意Vue v-for的位置不要多隔一層，不然CSS[:nth-child]會被影響作用*/
+    border-color: lighten($color_orange,0)
+  &:nth-child(2) ul
+    border-color: lighten($color_orange,6)
+  &:nth-child(3) ul
+    border-color: lighten($color_orange,12)
+    
+/* list skill */
+.listSkill
+  display: flex /*注意Vue v-for的位置不要多隔一層，不然CSS[flex]會被影響作用*/
+  flex-wrap: wrap 
+  & li
+    width: calc(100% / 4)
+    padding: 5px
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    align-items: center
+    text-align: center
+
+.circle
+  width: 50px
+  height: 50px
+  background-color: rgba($color_orange,0.4)
+  border-radius: 50%
+  position: relative
+  overflow: hidden
+  &::after
+    content: ""
+    display: block
+    background-color: $color_deepblue
+    width: calc(100% - 20px)
+    height: calc(100% - 20px)
+    border-radius: 50%
+    position: relative
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-50%)
+.p90,.p180,.p270,.p360
+  width: 50%
+  height: 50%
+  position: absolute
+  left: 50%
+  top: 0
+  background-color: $color_orange
+.p180
+  top: 50%
+.p270
+  left: 0
+  top: 50%
+.p360
+  left: 0
+  top: 0
+  
+.listProgram
+  & .bar
+    width: 150px
+    height: 10px
+    border: solid 2px $color_orange
+    border-radius: 5px
+  >li
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-top: 10px
+.value
+  height: 100%
+  width: 60%
+  background-color: $color_orange
+  &.p10
+    width: 10%
+  &.p20
+    width: 20%
+  &.p30
+    width: 30%
+  &.p40
+    width: 40%
+  &.p50
+    width: 50%
+  &.p60
+    width: 60%
+  &.p70
+  width: 70%
+  &.p80
+  width: 80%
+  &.p90
+  width: 90%
+  &.p100
+  width: 100%
+  
+.btn
+  border: 3px solid $color_orange
+  padding: 5px 20px
+  margin-right: 10px
+.fill
+  background-color: $color_orange

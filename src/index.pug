@@ -1,7 +1,7 @@
 #resume.resume
   .left(v-for="card in namecard")
     h1 {{card.name}}
-    h4 {{card.job}}
+    h4 應徵職位：{{card.job}}
     hr
     p {{card.content}}
     .buttons
@@ -11,27 +11,35 @@
       h4 {{title.e}}
       h2 {{title.c}}
       ul.listSkill
-        li(v-for="list in title.listSkill") {{list[0]}}
+        li(v-for="list in title.listSkill")
           .circle
-            div(v-bind:class="list[1]") {{'.' + list[1]}}
-            div(v-bind:class="list[2]") {{'.' + list[2]}}
-            div(v-bind:class="list[3]") {{'.' + list[3]}}
-            div(v-if="!list[4]==''" v-bind:class="'.' + list[4]") {{'.' + list[4]}}
+            div(v-bind:class="list[1]")
+            div(v-bind:class="list[2]")
+            div(v-bind:class="list[3]")
+            div(v-if="!list[4]==''" v-bind:class="list[4]")
+          | {{list[0]}}
     .block(v-for="title in l_titles" v-if="title.c=='程式技能'")
       h4 {{title.e}}
       h2 {{title.c}}
-      ul.listProgram
-        li(v-for="list in title.listProgram") {{list[0]}}
+      ul.listProgram(v-for="list in title.listProgram")
+        li {{list[0]}}
           .bar
-            .value(v-bind:class="list[1]") {{'.' + list[1]}}
+            .value(v-bind:class="list[1]")
   .right
+    .decoration
     .block(v-for="title in r_titles" v-if="title.c=='經歷與作品'")
       h4 {{title.e}}
       h2 {{title.c}}
       ul.listExperience
         li.year(v-for="item in listExperience") {{item.year}}
+          ul
+            li {{item.list[0].name}}
+            li {{item.list[1].name}}
+            li(v-if="!item.list[2]==''") {{item.list[2].name}}
+      ul.listExperience
+        li.year(v-for="item in listExperience") {{item.year}}
           ul(v-for="li in item.list")
-            li {{li.name}}
+            li ?? {{li.name}} <br/>
     .block(v-for="title in r_titles" v-if="title.c=='比賽經歷'")
       h4 {{title.e}}
       h2 {{title.c}}
