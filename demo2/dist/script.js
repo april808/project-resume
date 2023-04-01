@@ -2,7 +2,7 @@
 var resume_data = {
   namecard: [
     {
-      profileImageUrl: "https://i.imgur.com/4FziZJ7.png",
+      profileImageUrl: "https://april808.github.io/blog_website/assets/image/logo/MyLogo.vectornator1.svg",
       name: "麥大名",
       job: "前端工程師",
       content:

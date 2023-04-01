@@ -1,7 +1,6 @@
-# <Project 1> Resume(網頁履歷)
-
-課程製作備份-個人實作-Vue2[資料化]
+# Project - Resume(網頁履歷)
 	
 預覽：
 
-1. CodePen URL: [https://codepen.io/april808/pen/gOeBgbo](https://codepen.io/april808/pen/gOeBgbo).
+1. [Resume(技能網頁設計)](https://april808.github.io/project-resume/demo1/dist/index.html)
+1. [Resume-Vue(資料綁定)](https://april808.github.io/project-resume/demo2/dist/index.html)
