@@ -26,6 +26,7 @@ html, body {
 }
 .resume .left, .resume .right {
   display: inline-block;
+  vertical-align: bottom;
   font-size: 16px;
   width: 50%;
   height: auto;
