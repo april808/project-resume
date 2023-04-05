@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&amp;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Icons");
 * {
   position: relative;
 }
@@ -10,11 +12,9 @@ html, body {
 }
 
 .resume {
-  display: flex;
-  flex-wrap: wrap;
   max-width: 768px;
   background-color: #f6f6f6;
-  font-family: "Fjalla One", 微軟正黑體;
+  font-family: "Fjalla One", "微軟正黑體";
   letter-spacing: 1px;
   line-height: 1.2;
   padding: 100px 0px 20px 0;
@@ -22,6 +22,17 @@ html, body {
   border-bottom: solid 30px #a0c9f5;
   box-sizing: border-box;
   box-shadow: 0px 10px 50px -5px rgba(0, 0, 0, 0.5);
+  font-size: 0;
+}
+.resume .left, .resume .right {
+  display: inline-block;
+  font-size: 16px;
+  width: 50%;
+  height: auto;
+  box-sizing: border-box;
+}
+.resume .right {
+  padding: 0 50px 0 30px;
 }
 .resume h1 {
   font-size: 40px;
@@ -78,14 +89,6 @@ html, body {
 }
 .resume .md-dark {
   color: rgba(0, 0, 0, 0.5);
-}
-.resume .left, .resume .right {
-  width: 50%;
-  height: auto;
-  box-sizing: border-box;
-}
-.resume .right {
-  padding: 0 50px 0 30px;
 }
 .resume .lbottom2 {
   padding: 0 30px 0 50px;

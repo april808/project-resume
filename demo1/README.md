@@ -5,7 +5,7 @@ A Pen created on CodePen.io.
 預覽：
 
 1. CodePen URL: [https://codepen.io/april808/pen/WNXBPvz](https://codepen.io/april808/pen/WNXBPvz).
-1. GitHub: [Resume(技能網頁設計)](https://april808.github.io/project-resume/demo1/dist/index.html)
+1. GitHub: [Resume(技能網頁設計)](./dist/index.html)
 
 說明：
 
