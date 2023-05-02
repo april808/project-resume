@@ -37,7 +37,6 @@ html,body
   background-color: $color_grey
   font-family: 'Fjalla One', '微軟正黑體'
   
-  letter-spacing: 1px
   line-height: 1.2
   padding: 100px 0px 20px 0
   margin: 50px auto
@@ -46,19 +45,19 @@ html,body
   box-shadow: 0px 10px 50px -5px rgba(0,0,0,0.5)
   
   // 調整到Resume左右間距 //  
-  
-  // display: flex /* windows 上不起作用，需要開啟。 */
-  // flex-wrap: wrap /* windows 上不起作用，需要開啟。 */
-  
   font-size: 0 /* inline-block 二欄固定式版型 要點(3/4) */
+
+  letter-spacing: 0px // 添加字距後 iPad 上查看 不會跑版，但 windows 會
+  //display: flex /* windows 假如跑版，需要開啟。 */
+  //flex-wrap: wrap /* windows 假如跑版，需要開啟。 */
   & .left,& .right
       margin-top: auto 
       display: inline-block/* inline-block 二欄固定式版型 要點(1/4) */
       vertical-align: bottom /* inline-block 二欄固定式版型 要點(2/4) */
       font-size: 16px/* inline-block 二欄固定式版型 要點(4/4) */
       width: 50%
-      height: auto
       box-sizing: border-box
+      // outline: 1px solid red // 觀察用
   & .right
       padding: 0 50px 0 30px
   & h1
